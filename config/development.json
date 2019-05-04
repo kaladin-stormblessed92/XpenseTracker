@@ -1,0 +1,11 @@
+{
+  "DB": {
+    "Host": "localhost",
+    "Port": "27017",
+    "Database": "xpenseTracker"
+  },
+  "Logs": {
+    "Path": "logs",
+    "Exceptionpath": "logs/exceptionpath"
+  }
+}

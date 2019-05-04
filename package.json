@@ -4,7 +4,8 @@
   "description": "All in one solution to Track all your expenses",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "lint": "jslint *.js"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +19,12 @@
     "passport-local": "^1.0.0",
     "pm2": "^3.5.0",
     "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.9.0",
     "winston-mongodb": "^5.0.0"
   },
   "devDependencies": {
     "jest": "^24.7.1",
+    "jslint": "^0.12.1",
     "nodemon": "^1.19.0"
   }
 }

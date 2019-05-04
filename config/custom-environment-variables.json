@@ -1,0 +1,11 @@
+{
+  "DB": {
+    "Username": "DB_USERNAME",
+    "Password": "DB_PWD"
+  },
+  "TESTDB": {
+    "Username": "TESTDB_USERNAME",
+    "Password": "TESTDB_PWD"
+  },
+  "FILE_LOG_LEVEL": "FILE_LOG_LEVEL"
+}
