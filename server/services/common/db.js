@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const logger = require("../services/loggerService");
+const logger = require("./loggerService");
 const config = require("config");
 
 const userName =
