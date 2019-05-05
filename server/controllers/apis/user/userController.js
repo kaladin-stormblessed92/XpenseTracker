@@ -1,6 +1,4 @@
 const express = require("express");
-const passport = require("passport");
-const jwt = require("jsonwebtoken");
 const userRoutes = express.Router();
 const userService = require("../../../services/users/userService");
 
