@@ -26,9 +26,18 @@ const UserSchema = new mongoose.Schema({
   },
   email: {
     type: "String",
-    required: true
+    required: true,
+    unique: true
   },
   registrationDate: {
+    type: "Date",
+    default: Date.now
+  },
+  isActive: {
+    type: "boolean",
+    default: false
+  },
+  lastLoggedIn: {
     type: "Date",
     default: Date.now
   }
@@ -52,7 +61,6 @@ const userModel = new mongoose.model("User", UserSchema);
 
 const validate = function(user) {
   const userSchema = {
-    _id: joi.objectId(),
     password: joi.string().required(),
     usertype: joi.string().required(),
     firstName: joi
@@ -65,11 +73,14 @@ const validate = function(user) {
       .min(3)
       .max(50)
       .required(),
-    email: joi.email().required()
+    email: joi
+      .string()
+      .email()
+      .required()
   };
 
-  const { errors } = joi.validate(userSchema, user);
-  return errors;
+  const { error } = joi.validate(user, userSchema);
+  return error;
 };
 
 module.exports = {

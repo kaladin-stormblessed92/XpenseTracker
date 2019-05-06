@@ -2,18 +2,31 @@ const mongoose = require("mongoose");
 const logger = require("./loggerService");
 const config = require("config");
 
-const userName =
-  process.env.NODE_ENV === "test"
-    ? config.get("TESTDB.Username")
-    : config.get("DB.Username");
-
-const password =
-  process.env.NODE_ENV === "test"
-    ? config.get("TESTDB.Password")
-    : config.get("DB.Password");
+let mongoUserURL = "";
+if (process.env.NODE_ENV === "test") {
+  if (config.has("TESTDB.Username")) {
+    mongoUserURL = config.get("TESTDB.Username");
+  }
+  if (config.has("TESTDB.Password")) {
+    mongoUserURL += ":" + config.get("TESTDB.Password");
+  }
+  if (mongoUserURL.length > 0) {
+    mongoUserURL += "@";
+  }
+} else {
+  if (config.has("DB.Username")) {
+    mongoUserURL = config.get("DB.Username");
+  }
+  if (config.has("DB.Password")) {
+    mongoUserURL += ":" + config.get("DB.Password");
+  }
+  if (mongoUserURL.length > 0) {
+    mongoUserURL += "@";
+  }
+}
 
 const url =
-  `mongodb://${userName}:${password}@` +
+  `mongodb://${mongoUserURL}` +
   `${config.get("DB.Host")}:${config.get("DB.Port")}/` +
   `${config.get("DB.Database")}`;
 
