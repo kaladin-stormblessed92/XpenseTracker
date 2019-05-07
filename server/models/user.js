@@ -85,5 +85,6 @@ const validate = function(user) {
 
 module.exports = {
   user: userModel,
-  validateUser: validate
+  validateUser: validate,
+  UserSchema: UserSchema
 };

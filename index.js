@@ -8,6 +8,8 @@ require("./server/services/common/db");
 require("./server/services/common/authService");
 require("./server/routes/index")(app);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   logger.info(`Server started on : ${port}`);
 });
+
+module.exports = server;

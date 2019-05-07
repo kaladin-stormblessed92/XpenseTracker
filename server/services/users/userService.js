@@ -48,7 +48,6 @@ const createUser = async (userObj, done) => {
 
     user = await user.save(function(err, user) {
       if (err) {
-        console.log("Error in Saving user: " + err);
         throw err;
       }
       return done(null, { _id: user._id, email: user.email });

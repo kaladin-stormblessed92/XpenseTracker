@@ -5,11 +5,9 @@ const errors = require("../middlewares/errorMiddleware");
 module.exports = function(app) {
   app.use(express.json());
   app.use(bodyParser.urlencoded({ extended: false }));
-  // app.use(passport.initialize());
-
   app.use("/v1/users", userController);
   app.use(errors);
-  app.use("404", (req, res) => {
+  app.use("*", (req, res) => {
     res.status("404").send("Not Found..!!");
   });
 };

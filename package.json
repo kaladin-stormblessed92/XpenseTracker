@@ -4,7 +4,7 @@
   "description": "All in one solution to Track all your expenses",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --watchAll --coverage",
     "lint": "jslint *.js"
   },
   "keywords": [],
@@ -28,8 +28,10 @@
     "winston-mongodb": "^5.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "jslint": "^0.12.1",
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.0",
+    "supertest": "^4.0.2"
   }
 }
