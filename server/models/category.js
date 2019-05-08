@@ -9,6 +9,11 @@ const CategorySchema = new mongoose.Schema({
     maxlength: 20,
     unique: true
   },
+  type: {
+    type: "String",
+    required: true,
+    enum: ["Income", "Expense", "Transfer"]
+  },
   createdon: {
     type: "Date",
     default: Date.now
